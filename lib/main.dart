@@ -14,16 +14,60 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Stack(
-        alignment: AlignmentDirectional.center,
+      home: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            color: Colors.white,
+          Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Container(
+                color: Colors.yellow,
+                width: 100.0,
+                height: 100.0,
+              ),
+              Container(
+                color: Colors.indigo,
+                width: 50.0,
+                height: 50.0,
+              ),
+            ],
           ),
-          Container(
-            color: Colors.pink,
-            height: 50.0,
-            width: 50.0,
+          Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Container(
+                color: Colors.yellow,
+                width: 100.0,
+                height: 100.0,
+              ),
+              Container(
+                color: Colors.indigo,
+                width: 50.0,
+                height: 50.0,
+              ),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                color: Colors.cyan,
+                height: 100.0,
+                width: 100.0,
+              ),
+              Container(
+                color: Colors.teal,
+                height: 100.0,
+                width: 100.0,
+              ),
+              Container(
+                color: Colors.greenAccent,
+                height: 100.0,
+                width: 100.0,
+              ),
+            ],
           ),
         ],
       ),
