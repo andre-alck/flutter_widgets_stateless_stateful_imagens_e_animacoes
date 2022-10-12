@@ -1,99 +1,85 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Container(
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Container(
-                  color: Colors.yellow,
-                  width: 100.0,
-                  height: 100.0,
-                ),
-                Container(
-                  color: Colors.indigo,
-                  width: 50.0,
-                  height: 50.0,
-                ),
-              ],
-            ),
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Container(
-                  color: Colors.yellow,
-                  width: 100.0,
-                  height: 100.0,
-                ),
-                Container(
-                  color: Colors.indigo,
-                  width: 50.0,
-                  height: 50.0,
-                ),
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  color: Colors.cyan,
-                  height: 100.0,
-                  width: 100.0,
-                ),
-                Container(
-                  color: Colors.teal,
-                  height: 100.0,
-                  width: 100.0,
-                ),
-                Container(
-                  color: Colors.greenAccent,
-                  height: 100.0,
-                  width: 100.0,
-                ),
-              ],
-            ),
-            Container(
-              color: Colors.amber,
-              height: 500,
-              width: 300,
-              child: const Text(
-                'Diamante Amarelo',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 28,
-                ),
-                textAlign: TextAlign.center,
+      home: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                color: Colors.red,
+                height: 100,
+                width: 100,
               ),
-            ),
-            ElevatedButton(
-              onPressed: () => print(
-                'botão apertado.',
+              Container(
+                color: Colors.orange,
+                height: 100,
+                width: 100,
               ),
-              child: const Icon(
-                Icons.power_settings_new,
+              Container(
+                color: Colors.yellow,
+                height: 100,
+                width: 100,
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                color: Colors.green,
+                height: 100,
+                width: 100,
+              ),
+              Container(
+                color: Colors.cyan,
+                height: 100,
+                width: 100,
+              ),
+              Container(
+                color: Colors.blue,
+                height: 100,
+                width: 100,
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                color: Colors.purple,
+                height: 100,
+                width: 100,
+              ),
+              Container(
+                color: Colors.pink,
+                height: 100,
+                width: 100,
+              ),
+              Container(
+                color: Colors.white,
+                height: 100,
+                width: 100,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
