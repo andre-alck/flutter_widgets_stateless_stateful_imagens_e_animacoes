@@ -14,62 +14,86 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Stack(
-            alignment: AlignmentDirectional.center,
-            children: [
-              Container(
-                color: Colors.yellow,
-                width: 100.0,
-                height: 100.0,
+      home: Container(
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Stack(
+              alignment: AlignmentDirectional.center,
+              children: [
+                Container(
+                  color: Colors.yellow,
+                  width: 100.0,
+                  height: 100.0,
+                ),
+                Container(
+                  color: Colors.indigo,
+                  width: 50.0,
+                  height: 50.0,
+                ),
+              ],
+            ),
+            Stack(
+              alignment: AlignmentDirectional.center,
+              children: [
+                Container(
+                  color: Colors.yellow,
+                  width: 100.0,
+                  height: 100.0,
+                ),
+                Container(
+                  color: Colors.indigo,
+                  width: 50.0,
+                  height: 50.0,
+                ),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  color: Colors.cyan,
+                  height: 100.0,
+                  width: 100.0,
+                ),
+                Container(
+                  color: Colors.teal,
+                  height: 100.0,
+                  width: 100.0,
+                ),
+                Container(
+                  color: Colors.greenAccent,
+                  height: 100.0,
+                  width: 100.0,
+                ),
+              ],
+            ),
+            Container(
+              color: Colors.amber,
+              height: 500,
+              width: 300,
+              child: const Text(
+                'Diamante Amarelo',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                ),
+                textAlign: TextAlign.center,
               ),
-              Container(
-                color: Colors.indigo,
-                width: 50.0,
-                height: 50.0,
+            ),
+            ElevatedButton(
+              onPressed: () => print(
+                'botão apertado.',
               ),
-            ],
-          ),
-          Stack(
-            alignment: AlignmentDirectional.center,
-            children: [
-              Container(
-                color: Colors.yellow,
-                width: 100.0,
-                height: 100.0,
+              child: const Icon(
+                Icons.power_settings_new,
               ),
-              Container(
-                color: Colors.indigo,
-                width: 50.0,
-                height: 50.0,
-              ),
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                color: Colors.cyan,
-                height: 100.0,
-                width: 100.0,
-              ),
-              Container(
-                color: Colors.teal,
-                height: 100.0,
-                width: 100.0,
-              ),
-              Container(
-                color: Colors.greenAccent,
-                height: 100.0,
-                width: 100.0,
-              ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
