@@ -26,12 +26,15 @@ class MyApp extends StatelessWidget {
           children: const [
             Task(
               'Learn Flutter',
+              'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
             ),
             Task(
               'Ride a bike',
+              'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
             ),
             Task(
               'Meditate',
+              'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
             ),
           ],
         ),
@@ -45,8 +48,11 @@ class MyApp extends StatelessWidget {
 
 class Task extends StatefulWidget {
   final String name;
+  final String imageURL;
+
   const Task(
-    this.name, {
+    this.name,
+    this.imageURL, {
     super.key,
   });
 
@@ -83,6 +89,10 @@ class _TaskState extends State<Task> {
                       color: Colors.black26,
                       width: 72,
                       height: 100,
+                      child: Image.network(
+                        widget.imageURL,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     SizedBox(
                       width: 200,
