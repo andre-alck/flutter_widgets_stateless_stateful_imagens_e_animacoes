@@ -27,14 +27,17 @@ class MyApp extends StatelessWidget {
             Task(
               'Learn Flutter',
               'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
+              5,
             ),
             Task(
               'Ride a bike',
               'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
+              2,
             ),
             Task(
               'Meditate',
               'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
+              5,
             ),
           ],
         ),
@@ -49,10 +52,12 @@ class MyApp extends StatelessWidget {
 class Task extends StatefulWidget {
   final String name;
   final String imageURL;
+  final int difficulty;
 
   const Task(
     this.name,
-    this.imageURL, {
+    this.imageURL,
+    this.difficulty, {
     super.key,
   });
 
@@ -74,19 +79,34 @@ class _TaskState extends State<Task> {
       child: Stack(
         children: [
           Container(
-            color: Colors.blue,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              color: Colors.blue,
+            ),
             height: 140,
           ),
           Column(
             children: [
               Container(
-                color: Colors.white,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    10,
+                  ),
+                  color: Colors.white,
+                ),
                 height: 100,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      color: Colors.black26,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          10,
+                        ),
+                        color: Colors.black26,
+                      ),
                       width: 72,
                       height: 100,
                       child: Image.network(
@@ -94,15 +114,60 @@ class _TaskState extends State<Task> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(
-                      width: 200,
-                      child: Text(
-                        widget.name,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          overflow: TextOverflow.ellipsis,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 200,
+                          child: Text(
+                            widget.name,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ),
-                      ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              size: 15,
+                              color: widget.difficulty > 0
+                                  ? Colors.blue
+                                  : Colors.blue[100],
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 15,
+                              color: widget.difficulty > 1
+                                  ? Colors.blue
+                                  : Colors.blue[100],
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 15,
+                              color: widget.difficulty > 2
+                                  ? Colors.blue
+                                  : Colors.blue[100],
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 15,
+                              color: widget.difficulty > 3
+                                  ? Colors.blue
+                                  : Colors.blue[100],
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 15,
+                              color: widget.difficulty > 4
+                                  ? Colors.blue
+                                  : Colors.blue[100],
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     ElevatedButton(
                       onPressed: () => setState(
@@ -125,7 +190,9 @@ class _TaskState extends State<Task> {
                     SizedBox(
                       width: 200,
                       child: LinearProgressIndicator(
-                        value: level / 10,
+                        value: widget.difficulty > 0
+                            ? (level / widget.difficulty) / 10
+                            : 1,
                         color: Colors.white,
                       ),
                     ),
