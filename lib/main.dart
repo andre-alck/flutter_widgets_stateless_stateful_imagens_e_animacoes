@@ -2,15 +2,26 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const MyApp(),
+    MyApp(),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context) {
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool opacity = true;
+
+  @override
+  Widget build(
+    BuildContext context,
+  ) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -22,27 +33,42 @@ class MyApp extends StatelessWidget {
             'Tarefas',
           ),
         ),
-        body: ListView(
-          children: const [
-            Task(
-              'Learn Flutter',
-              'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
-              5,
-            ),
-            Task(
-              'Ride a bike',
-              'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
-              2,
-            ),
-            Task(
-              'Meditate',
-              'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
-              5,
-            ),
-          ],
+        body: AnimatedOpacity(
+          opacity: opacity ? 1 : 0,
+          duration: const Duration(
+            milliseconds: 1000,
+          ),
+          child: ListView(
+            children: const [
+              Task(
+                'Learn Flutter',
+                'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
+                5,
+              ),
+              Task(
+                'Ride a bike',
+                'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
+                2,
+              ),
+              Task(
+                'Meditate',
+                'https://storage.googleapis.com/cms-storage-bucket/780e0e64d323aad2cdd5.png',
+                5,
+              ),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          child: opacity
+              ? const Icon(Icons.visibility_off)
+              : const Icon(
+                  Icons.visibility,
+                ),
+          onPressed: () {
+            setState(() {
+              opacity = !opacity;
+            });
+          },
         ),
       ),
     );
