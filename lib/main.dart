@@ -83,19 +83,46 @@ class Model extends StatelessWidget {
       child: Row(
         children: [
           Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 3,
+              ),
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              color: colors[0],
+            ),
             height: 150,
             width: 100,
-            color: colors[0],
           ),
           Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 3,
+              ),
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              color: colors[1],
+            ),
             height: 150,
             width: 100,
-            color: colors[1],
           ),
           Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 3,
+              ),
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              color: colors[2],
+            ),
             height: 150,
             width: 100,
-            color: colors[2],
           ),
         ],
       ),
