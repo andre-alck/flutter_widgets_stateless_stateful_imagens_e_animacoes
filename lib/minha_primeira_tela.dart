@@ -78,9 +78,7 @@ class MinhaPrimeiraTela extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: () => print(
-              'botão apertado.',
-            ),
+            onPressed: () {},
             child: const Text(
               'Aperte o botão!',
             ),
